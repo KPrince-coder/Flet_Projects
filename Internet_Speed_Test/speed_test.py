@@ -1,11 +1,11 @@
 import flet as ft
-from flet import Page, Text, LinearGradient, Container, Row, Column
+from flet import Page, Text, LinearGradient, Container, Column
 import random
 from time import sleep
 
 # Variables
 WIDTH = 640
-HEIGHT = 660
+HEIGHT = 680
 COLORS = {
     'yellow': '#fcbf30',
     'red': '#d62829',
@@ -58,12 +58,16 @@ class App(ft.UserControl):
 
     @property
     def __on_start_container(self):
-        return Container(
+        self.main_frame_container = Container(
             height=100,
             width=200,
             bgcolor=ft.colors.with_opacity(0.7, COLORS['greyish']),
             border_radius=ft.border_radius.all(10),
             padding=ft.padding.all(12),
+            animate=ft.animation.Animation(
+                duration=1000,
+                curve=ft.animation.AnimationCurve.BOUNCE_OUT
+            ),
             content=(
                 Text(
                     value='> press start...',
@@ -75,6 +79,7 @@ class App(ft.UserControl):
 
             )
         )
+        return self.main_frame_container
 
     @property
     def __spacing(self):
@@ -83,9 +88,12 @@ class App(ft.UserControl):
             padding=5
         )
 
-    def __process_container(self):
-        self.__on_start_container.width = 500
-        self.__on_start_container.height = 460
+    # @property
+    def __process_container(self, e):
+        self.main_frame_container.width = 500
+        self.main_frame_container.height = 400
+        self.update()
+        # pass
 
     def build(self):
         main_container = Container(
@@ -93,13 +101,10 @@ class App(ft.UserControl):
             height=HEIGHT,
             margin=ft.margin.all(-10),
             gradient=self.gradient_generator(rand_col_1, rand_col_2),
-            animate=ft.animation.Animation(
-                duration=4,
-                curve=ft.animation.AnimationCurve.BOUNCE_OUT
-            ),
             alignment=ft.alignment.center,
             content=Container(
                 alignment=ft.alignment.center,
+                margin=ft.margin.only(top=-54),
                 content=Column(
                     alignment=ft.MainAxisAlignment.CENTER,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -116,7 +121,7 @@ class App(ft.UserControl):
                             tooltip='start',
                             icon_color=COLORS['green'],
                             scale=ft.Scale(2),
-                            on_click=self.__process_container()
+                            on_click=self.__process_container
 
                         )
 
