@@ -36,7 +36,7 @@ class App(ft.UserControl):
         )
 
     @property
-    def __page_title(self):
+    def __page_header(self):
         """Returns the header of the page
         """
         return Text(
@@ -62,25 +62,41 @@ class App(ft.UserControl):
             height=100,
             width=200,
             bgcolor=ft.colors.with_opacity(0.7, COLORS['greyish']),
-            border_radius=ft.border_radius.all(10)
+            border_radius=ft.border_radius.all(10),
+            padding=ft.padding.all(12),
+            content=(
+                Text(
+                    value='> press start...',
+                    italic=True,
+                    size=14,
+                    weight=ft.FontWeight.W_600,
+                    opacity=0.9
+                )
+
+            )
         )
 
     @property
     def __spacing(self):
-        """Provides spacing between"""
+        """Provides spacing"""
         return Container(
             padding=5
         )
 
+    def __process_container(self):
+        self.__on_start_container.width = 500
+        self.__on_start_container.height = 460
+
     def build(self):
-        self.__background = Container(
+        main_container = Container(
             width=WIDTH,
             height=HEIGHT,
             margin=ft.margin.all(-10),
             gradient=self.gradient_generator(rand_col_1, rand_col_2),
-            # animate=ft.animation.Animation(
-            #     4, curve=ft.animation.AnimationCurve.EASE_IN_OUT
-            # ),
+            animate=ft.animation.Animation(
+                duration=4,
+                curve=ft.animation.AnimationCurve.BOUNCE_OUT
+            ),
             alignment=ft.alignment.center,
             content=Container(
                 alignment=ft.alignment.center,
@@ -88,7 +104,7 @@ class App(ft.UserControl):
                     alignment=ft.MainAxisAlignment.CENTER,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     controls=[
-                        self.__page_title,
+                        self.__page_header,
                         # spacing
                         self.__spacing,
                         self.__on_start_container,
@@ -99,16 +115,17 @@ class App(ft.UserControl):
                             icon=ft.icons.PLAY_CIRCLE_FILL_ROUNDED,
                             tooltip='start',
                             icon_color=COLORS['green'],
-                            scale=ft.Scale(2)
+                            scale=ft.Scale(2),
+                            on_click=self.__process_container()
 
                         )
 
                     ]
                 )
             )
-
         )
-        return self.__background
+
+        return main_container
 
 
 def main(page: Page):
