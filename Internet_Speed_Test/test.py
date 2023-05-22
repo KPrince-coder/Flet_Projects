@@ -3,14 +3,32 @@ import speedtest as spt
 
 class Test():
     st = spt.Speedtest()
-    download_speed = st.download() / 1_000_000  # in Mbps
-    upload_speed = st.upload() / 1_000_000  # in Mbps
+
+    @property
+    def download_speed(self):
+        return self.st.download() / 1_000_000  # in Mbps
+
+    @property
+    def upload_speed(self):
+        return self.st.upload() / 1_000_000  # in Mbps
 
     best_server = st.get_best_server()
-    city = best_server['name']
-    country = best_server['country']
-    country_code = best_server['cc']
-    servers = st.get_servers()
+
+    @property
+    def city(self):
+        return self.best_server['name']
+
+    @property
+    def country(self):
+        return self.best_server['country']
+
+    @property
+    def country_code(self):
+        return self.best_server['cc']
+
+    @property
+    def servers(self):
+        return self.st.get_servers()
 
 
 if __name__ == '__main__':
