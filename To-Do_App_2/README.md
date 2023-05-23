@@ -7,4 +7,3 @@
 
 ***
 ***NB: After deleting a task, click anywhere behind the modal or the pop up window to close it.***
-
