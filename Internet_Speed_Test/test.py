@@ -36,6 +36,12 @@ logger.addHandler(file_handler)
 
 
 def run_speed_test():
+    """Converts download and upload speeds to Megabit per second (Mbps) and logs the result of the speed test including the download speed, upload speed, country,country code and city.
+
+
+    Returns:
+        speedtest: download speed, upload speed, country,country code and city
+    """
     try:
         st = speedtest.Speedtest()
 
