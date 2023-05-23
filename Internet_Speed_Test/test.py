@@ -1,39 +1,60 @@
-import speedtest as spt
+"""Date: Tuesday, May 23, 2023"""
+import logging
+from logging.handlers import TimedRotatingFileHandler
+import os
+import speedtest
+# def log
+logging.basicConfig(level=logging.DEBUG, filename=f'{__file__}_logs.log')
+
+dir_path = os.path.join(os.path.dirname(
+    __file__), 'tests_container')
+if not os.path.exists(dir_path):
+    os.makedirs(dir_path)
+
+file_path = os.path.join(dir_path, 'tests.log')
+
+logger = logging.getLogger(__name__)
+
+file_handler = TimedRotatingFileHandler(
+    filename=file_path,
+    when='midnight',
+    delay=True,
+    backupCount=20
+
+)
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(
+    logging.Formatter(
+        '{asctime}:{levelname}:{name}:{message}',
+        style='{',
+        datefmt='%b-%d-%Y %H:%M:%S'
+    )
+)
 
 
-class Test():
-    st = spt.Speedtest()
+logger.addHandler(file_handler)
 
-    @property
-    def download_speed(self):
-        return self.st.download() / 1_000_000  # in Mbps
 
-    @property
-    def upload_speed(self):
-        return self.st.upload() / 1_000_000  # in Mbps
+def run_speed_test():
+    try:
+        st = speedtest.Speedtest()
 
-    best_server = st.get_best_server()
+        download_speed = st.download() / 1_000_000  # in Mbps
+        upload_speed = st.upload() / 1_000_000  # in Mbps
 
-    @property
-    def city(self):
-        return self.best_server['name']
+        best_server = st.get_best_server()
+        country = best_server['country']
+        city = best_server['name']
+        country_code = best_server['cc']
+        logger.info(
+            f'Download Speed: {download_speed:.2f} Mbps: Upload Speed: {upload_speed:.2f} Mbps')
 
-    @property
-    def country(self):
-        return self.best_server['country']
+        return download_speed, upload_speed, country_code, city, country
 
-    @property
-    def country_code(self):
-        return self.best_server['cc']
-
-    @property
-    def servers(self):
-        return self.st.get_servers()
+    except speedtest.SpeedtestException as e:
+        logger.error(f'Speed test failed: {e}')
+        return None, None, None, None, None
 
 
 if __name__ == '__main__':
-    test = Test()
-    print(f'\nDownload speed: {test.download_speed:.2f} Mbps')
-    print(f'Upload speed: {test.upload_speed:.2f} Mbps')
-    print(f'Best server: {test.city}, {test.country} {test.country_code}')
-    # print(f'\nServers: {test.servers}\n')
+    logger.info('hello what\'s up')
