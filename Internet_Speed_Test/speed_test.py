@@ -4,6 +4,7 @@ from time import sleep
 import random
 import test
 
+download, upload, cc, city, country = test.run_speed_test()
 # Variables
 WIDTH = 640
 HEIGHT = 655
@@ -17,23 +18,6 @@ COLORS = {
 l = list(range(5))
 rand_col_1, rand_col_2 = '#354f52', '#252323'
 
-
-# class Process(UserControl):
-#     def __init__(self, start_container):
-#         super().__init__()
-#         self.start_container = start_container
-
-
-#     def build(self):
-#         text = Text(
-#         value='',
-#         weight=14,
-#         )
-#         self.processing = Column(
-#             controls=[
-#                 self.text.value = 'hel'
-#             ]
-#         )
 
 class App(UserControl):
     @staticmethod
@@ -100,14 +84,16 @@ class App(UserControl):
     )
     line_07 = Text(
         value='',
-        italic=True,
         size=14,
         weight=ft.FontWeight.W_600,
-        opacity=0.9
+        opacity=0.9,
+        color=COLORS['yellow']
+
     )
     line_08 = Text(
         value='',
         size=14,
+        italic=True,
         weight=ft.FontWeight.W_600,
         opacity=0.9
     )
@@ -120,20 +106,22 @@ class App(UserControl):
 
     progress_bar_1 = Row(
         controls=[
-            Text(value='  '),
+            Text(value=' '),
             ProgressBar(
-                height=500,
-                bgcolor=COLORS['blue'],
+                width=420,
+                color='#0466c8',
+                bgcolor='#edf2fb',
                 visible=False
             )
         ]
     )
     progress_bar_2 = Row(
         controls=[
-            Text(value='  '),
+            Text(value=' '),
             ProgressBar(
-                height=500,
-                bgcolor=COLORS['blue'],
+                width=420,
+                color='#0466c8',
+                bgcolor='#edf2fb',
                 visible=False
             )
         ]
@@ -200,33 +188,66 @@ class App(UserControl):
         )
 
     def __process_container(self, e):
-        self.line_01.value = ''
-        self.line_02.value = ''
-        self.line_03.value = ''
-        self.line_04.value = ''
-        self.line_05.value = ''
-        self.line_06.value = ''
-        # self.line_07.value = ''
-        self.main_frame_container.update()
-        self.main_frame_container.width = 500
-        self.main_frame_container.height = 400
-        self.line_01.value = '> calculating download speed, please wait...'
-        self.line_02.value = f'> finding the best servers  {test.country}, {test.city} ({test.country_code})'
-        # self.line_03.value = f'finding the best possible servers in {random.choice(l)}'
-        self.line_03.value = '> connection established, status OK, fetching download speed'
-        self.progress_bar_1.visible = True
-        sleep(5)
-        self.main_frame_container.update()
-        self.line_04.value = '> the download speed is {test.download_speed:.2f} Mbps'
-        self.line_05.value = '> calculating the upload speed, please wait...'
-        self.line_06.value = '> executing the upload script, hold on'
-        self.progress_bar_2.visible = True
-        sleep(3)
-        self.main_frame_container.update()
-        self.line_07.value = '> the upload speed is {test.download_speed:.2f} Mbps'
-        self.line_08.value = '> task completed successfully\n\n'
-        self.line_09.value = '>> app developer: Anointing'
-        self.main_frame_container.update()
+        if download != None:
+            self.progress_bar_1.controls[1].visible = False
+            self.progress_bar_1.controls[1].value = None
+            self.progress_bar_2.controls[1].visible = False
+            self.progress_bar_2.controls[1].value = None
+
+            self.line_01.value = ''
+            self.line_02.value = ''
+            self.line_03.value = ''
+            self.line_04.value = ''
+            self.line_05.value = ''
+            self.line_06.value = ''
+            self.line_07.value = ''
+            self.line_08.value = ''
+            self.line_09.value = ''
+            self.main_frame_container.update()
+            self.main_frame_container.width = 500
+            self.main_frame_container.height = 400
+            self.main_frame_container.update()
+
+            sleep(1)
+
+            self.line_01.value = '> calculating download speed, please wait...'
+            self.main_frame_container.update()
+            sleep(2)
+
+            self.line_02.value = f'> finding the best servers in {country}, {city} ({cc})'
+            # self.line_02.value = f'> finding the best possible servers in {random.choice(l)}'
+            self.main_frame_container.update()
+            sleep(2)
+
+            self.line_03.value = '> connection established, status OK, fetching download speed'
+            self.progress_bar_1.controls[1].visible = True
+            self.main_frame_container.update()
+            sleep(5)
+
+            self.progress_bar_1.controls[1].value = 1
+
+            self.line_04.value = f'> the download speed is {download:.2f} Mbps'
+            self.line_05.value = '> calculating the upload speed, please wait...'
+            sleep(2)
+
+            self.line_06.value = '> executing the upload script, hold on'
+            self.progress_bar_2.controls[1].visible = True
+            self.main_frame_container.update()
+            sleep(4)
+
+            self.progress_bar_2.controls[1].value = 1
+
+            self.line_07.value = f'> the upload speed is {upload:.2f} Mbps'
+            self.line_08.value = '> task completed successfully\n\n'
+            self.line_09.value = '>> app developer: Anointing'
+            self.main_frame_container.update()
+        else:
+            self.main_frame_container.clean()
+            self.main_frame_container.update()
+            self.line_01.value = 'An error has occurred. Please check your internet connection!'
+            self.line_01.color = COLORS['red']
+            self.main_frame_container.update()
+            print('ERROR::Check your internet connection!')
 
     def build(self):
         main_container = Container(
