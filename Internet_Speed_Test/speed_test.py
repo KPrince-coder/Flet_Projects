@@ -1,9 +1,11 @@
+"""Date Completed: Tuesday, May 23, 2023. It took me about 3-4 days to complete"""
 import flet as ft
 from flet import Page, Text, LinearGradient, Container, Row, Column, ProgressBar, UserControl
 from time import sleep
 import random
 import test
 
+# assigns values of various variables to them
 download, upload, cc, city, country = test.run_speed_test()
 # Variables
 WIDTH = 640
@@ -239,14 +241,14 @@ class App(UserControl):
 
             self.line_07.value = f'> the upload speed is {upload:.2f} Mbps'
             self.line_08.value = '> task completed successfully\n\n'
-            self.line_09.value = '>> app developer: Anointing'
+            self.line_09.value = '>> app developer: Kyeremeh Prince (Github: KPrince-coder)'
             self.main_frame_container.update()
         else:
             self.main_frame_container.clean()
             self.main_frame_container.update()
             self.line_01.value = 'An error has occurred. Please check your internet connection!'
             self.line_01.color = COLORS['red']
-            self.main_frame_container.update()
+            self.update()
             print('ERROR::Check your internet connection!')
 
     def build(self):
