@@ -53,7 +53,7 @@ def run_speed_test():
         city = best_server['name']
         country_code = best_server['cc']
         logger.info(
-            f'Download Speed: {download_speed:.2f} Mbps: Upload Speed: {upload_speed:.2f} Mbps')
+            f'\nDownload Speed: {download_speed:.2f} Mbps: Upload Speed: {upload_speed:.2f} Mbps: City: {city}: Country: {country}')
 
         return download_speed, upload_speed, country_code, city, country
 
