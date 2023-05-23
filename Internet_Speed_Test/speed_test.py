@@ -327,8 +327,8 @@ def main(page: Page):
     # page.window_bgcolor = 'red'
     page.theme_mode = ft.ThemeMode.DARK
     # page.auto_scroll = True
-    # page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    # page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.window_maximizable = False
     page.theme = ft.Theme(font_family='Source Code Pro ExtraLight')
     page.update()
