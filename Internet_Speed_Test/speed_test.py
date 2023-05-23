@@ -5,8 +5,7 @@ from time import sleep
 import random
 import test
 
-# assigns values of various variables to them
-download, upload, cc, city, country = test.run_speed_test()
+
 # Variables
 WIDTH = 640
 HEIGHT = 655
@@ -61,11 +60,10 @@ class App(UserControl):
         size=14,
         weight=ft.FontWeight.W_600,
         color=COLORS['green'],
-        visible=False
     )
     line_04 = Text(
         value='',
-        italic=True,
+        # italic=True,
         size=14,
         weight=ft.FontWeight.W_600,
         color=COLORS['yellow']
@@ -190,6 +188,16 @@ class App(UserControl):
         )
 
     def __process_container(self, e):
+        self.line_01.value = 'Loading...'
+        self.line_01.color = 'white'
+        self.line_01.opacity = 0.9
+        self.progress_bar_1.controls[1].visible = True
+        self.main_frame_container.update()
+        sleep(3)
+
+        # assigns values of various variables to them
+        self.progress_bar_1.controls[1].value = 1
+        download, upload, cc, city, country = test.run_speed_test()
         if download != None:
             self.progress_bar_1.controls[1].visible = False
             self.progress_bar_1.controls[1].value = None
@@ -206,22 +214,25 @@ class App(UserControl):
             self.line_08.value = ''
             self.line_09.value = ''
             self.main_frame_container.update()
-            self.main_frame_container.width = 500
+            self.main_frame_container.width = 550
             self.main_frame_container.height = 400
             self.main_frame_container.update()
 
             sleep(1)
 
             self.line_01.value = '> calculating download speed, please wait...'
+            self.line_01.color = 'white'
             self.main_frame_container.update()
             sleep(2)
 
-            self.line_02.value = f'> finding the best servers in {country}, {city} ({cc})'
+            self.line_02.value = f'> finding the best servers in {city}, {country} ({cc})'
             # self.line_02.value = f'> finding the best possible servers in {random.choice(l)}'
             self.main_frame_container.update()
             sleep(2)
 
             self.line_03.value = '> connection established, status OK, fetching download speed'
+            self.main_frame_container.update()
+
             self.progress_bar_1.controls[1].visible = True
             self.main_frame_container.update()
             sleep(5)
@@ -240,15 +251,33 @@ class App(UserControl):
             self.progress_bar_2.controls[1].value = 1
 
             self.line_07.value = f'> the upload speed is {upload:.2f} Mbps'
-            self.line_08.value = '> task completed successfully\n\n'
+            self.line_08.value = '> task completed successfully\n'
             self.line_09.value = '>> app developer: Kyeremeh Prince (Github: KPrince-coder)'
+            # self.line_09.size = 13
             self.main_frame_container.update()
         else:
-            self.main_frame_container.clean()
+            self.progress_bar_1.controls[1].visible = False
+            self.progress_bar_1.controls[1].value = None
+            self.progress_bar_2.controls[1].visible = False
+            self.progress_bar_2.controls[1].value = None
+
+            self.line_01.value = ''
+            self.line_02.value = ''
+            self.line_03.value = ''
+            self.line_04.value = ''
+            self.line_05.value = ''
+            self.line_06.value = ''
+            self.line_07.value = ''
+            self.line_08.value = ''
+            self.line_09.value = ''
+            self.main_frame_container.update()
+            self.main_frame_container.width = 200
+            self.main_frame_container.height = 100
             self.main_frame_container.update()
             self.line_01.value = 'An error has occurred. Please check your internet connection!'
             self.line_01.color = COLORS['red']
-            self.update()
+            self.line_01.opacity = 0.9
+            self.main_frame_container.update()
             print('ERROR::Check your internet connection!')
 
     def build(self):
