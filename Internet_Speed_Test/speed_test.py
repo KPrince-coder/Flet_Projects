@@ -191,12 +191,10 @@ class App(UserControl):
         self.line_01.value = 'Loading...'
         self.line_01.color = 'white'
         self.line_01.opacity = 0.9
-        self.progress_bar_1.controls[1].visible = True
         self.main_frame_container.update()
         sleep(3)
 
         # assigns values of various variables to them
-        self.progress_bar_1.controls[1].value = 1
         download, upload, cc, city, country = test.run_speed_test()
         if download != None:
             self.progress_bar_1.controls[1].visible = False
@@ -235,7 +233,7 @@ class App(UserControl):
 
             self.progress_bar_1.controls[1].visible = True
             self.main_frame_container.update()
-            sleep(5)
+            sleep(4)
 
             self.progress_bar_1.controls[1].value = 1
 
