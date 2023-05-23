@@ -285,6 +285,7 @@ class App(UserControl):
             margin=ft.margin.all(-10),
             gradient=self.gradient_generator(rand_col_1, rand_col_2),
             alignment=ft.alignment.center,
+            border_radius=20,
             content=Container(
                 alignment=ft.alignment.center,
                 margin=ft.margin.only(top=-54),
@@ -326,6 +327,7 @@ def main(page: Page):
     page.window_max_width = HEIGHT
     # page.window_bgcolor = 'red'
     page.theme_mode = ft.ThemeMode.DARK
+    page.bgcolor = '#272640'
     # page.auto_scroll = True
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER

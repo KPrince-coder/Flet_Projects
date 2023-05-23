@@ -1,0 +1,127 @@
+May-23-2023 01:40:23:INFO:__main__
+hello
+May-23-2023 01:45:03:INFO:__main__-hello what's up
+May-23-2023 01:46:53:INFO:__main__:hello what's up
+May-23-2023 01:48:53:INFO:__main__:hello what's up
+May-23-2023 02:11:43:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 02:14:14:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 02:14:41:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 02:17:16:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 02:21:30:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 02:22:31:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 02:24:13:INFO:__main__:hello what's up
+May-23-2023 02:25:20:INFO:__main__:hello what's up
+May-23-2023 02:27:01:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 02:27:46:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 02:35:18:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 02:37:06:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 02:38:53:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 02:39:03:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 02:53:59:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:03:50:INFO:test:Download Speed: 2.79 Mbps: Upload Speed: 7.70 Mbps
+May-23-2023 03:11:08:INFO:test:Download Speed: 2.46 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:16:57:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:18:43:ERROR:test:Speed test failed: [WinError 10054] An existing connection was forcibly closed by the remote host
+May-23-2023 03:18:43:ERROR:test:Speed test failed: [WinError 10054] An existing connection was forcibly closed by the remote host
+May-23-2023 03:18:59:INFO:test:Download Speed: 2.67 Mbps: Upload Speed: 7.85 Mbps
+May-23-2023 03:18:59:INFO:test:Download Speed: 3.50 Mbps: Upload Speed: 3.72 Mbps
+May-23-2023 03:19:03:INFO:test:Download Speed: 2.06 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:03:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:03:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:03:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:03:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:04:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:04:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:04:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:04:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:04:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:04:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:04:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:04:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:04:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:04:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:04:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:04:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:19:27:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:19:43:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:25:05:ERROR:test:Speed test failed: <urlopen error [WinError 10065] A socket operation was attempted to an unreachable host>
+May-23-2023 03:25:05:ERROR:test:Speed test failed: <urlopen error [WinError 10065] A socket operation was attempted to an unreachable host>
+May-23-2023 03:25:05:ERROR:test:Speed test failed: <urlopen error [WinError 10065] A socket operation was attempted to an unreachable host>
+May-23-2023 03:25:05:ERROR:test:Speed test failed: <urlopen error [WinError 10065] A socket operation was attempted to an unreachable host>
+May-23-2023 03:25:05:ERROR:test:Speed test failed: <urlopen error [WinError 10065] A socket operation was attempted to an unreachable host>
+May-23-2023 03:25:15:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:25:16:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:25:17:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:25:18:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:25:19:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:26:14:ERROR:test:Speed test failed: [WinError 10054] An existing connection was forcibly closed by the remote host
+May-23-2023 03:26:28:ERROR:test:Speed test failed: <urlopen error [WinError 10065] A socket operation was attempted to an unreachable host>
+May-23-2023 03:28:06:INFO:test:Download Speed: 13.96 Mbps: Upload Speed: 5.59 Mbps
+May-23-2023 03:28:08:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:28:08:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:28:08:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:28:08:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:28:08:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:28:08:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:28:08:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:28:25:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:28:32:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:28:42:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:28:43:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:28:45:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:28:47:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:33:02:ERROR:test:Speed test failed: [WinError 10054] An existing connection was forcibly closed by the remote host
+May-23-2023 03:33:17:INFO:test:Download Speed: 3.47 Mbps: Upload Speed: 7.52 Mbps
+May-23-2023 03:33:17:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:34:26:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:35:47:ERROR:test:Speed test failed: <urlopen error [WinError 10065] A socket operation was attempted to an unreachable host>
+May-23-2023 03:35:47:INFO:test:Download Speed: 15.50 Mbps: Upload Speed: 2.75 Mbps
+May-23-2023 03:36:45:INFO:test:Download Speed: 0.83 Mbps: Upload Speed: 11.96 Mbps
+May-23-2023 03:36:51:INFO:test:Download Speed: 4.07 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:37:06:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:39:36:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:39:43:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:45:05:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:45:37:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:46:36:INFO:test:Download Speed: 4.15 Mbps: Upload Speed: 7.76 Mbps
+May-23-2023 03:47:12:INFO:test:Download Speed: 2.58 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:47:38:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:49:29:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:51:08:INFO:test:Download Speed: 4.88 Mbps: Upload Speed: 7.66 Mbps
+May-23-2023 03:51:36:INFO:test:Download Speed: 4.17 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:52:02:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:54:27:INFO:test:Download Speed: 3.79 Mbps: Upload Speed: 8.97 Mbps
+May-23-2023 03:55:09:INFO:test:Download Speed: 4.90 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:55:35:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 03:56:39:INFO:test:Download Speed: 4.18 Mbps: Upload Speed: 7.24 Mbps
+May-23-2023 03:57:26:INFO:test:Download Speed: 4.08 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 03:59:43:INFO:test:Download Speed: 4.78 Mbps: Upload Speed: 7.65 Mbps
+May-23-2023 04:00:32:INFO:test:Download Speed: 0.00 Mbps: Upload Speed: 0.00 Mbps
+May-23-2023 04:10:15:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 04:10:22:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 04:10:28:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 04:12:47:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 04:12:51:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 04:19:54:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 04:20:56:INFO:test:
+Download Speed: 6.72 Mbps: Upload Speed: 9.67 Mbps: City: Accra: Country: Ghana
+May-23-2023 04:21:24:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 04:21:33:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 04:30:08:ERROR:test:Speed test failed: Unable to connect to servers to test latency.
+May-23-2023 04:31:40:INFO:test:
+Download Speed: 9.23 Mbps: Upload Speed: 6.24 Mbps: City: Agbodrafo: Country: Togo
+May-23-2023 04:34:06:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 04:40:26:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 10:32:47:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 10:39:53:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 10:41:38:ERROR:test:Speed test failed: <urlopen error [Errno 11001] getaddrinfo failed>
+May-23-2023 10:42:52:INFO:test:
+Download Speed: 1.44 Mbps: Upload Speed: 5.29 Mbps: City: Accra: Country: Ghana
+May-23-2023 10:44:12:INFO:test:
+Download Speed: 1.10 Mbps: Upload Speed: 4.82 Mbps: City: Accra: Country: Ghana
+May-23-2023 10:51:40:INFO:test:
+Download Speed: 6.17 Mbps: Upload Speed: 16.56 Mbps: City: Abidjan: Country: Côte d'Ivoire
+May-23-2023 10:56:23:INFO:test:
+Download Speed: 4.11 Mbps: Upload Speed: 36.49 Mbps: City: Accra: Country: Ghana
+May-23-2023 11:05:10:INFO:test:
+Download Speed: 2.37 Mbps: Upload Speed: 78.41 Mbps: City: Accra: Country: Ghana
