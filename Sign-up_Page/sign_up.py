@@ -1,7 +1,9 @@
 import flet as ft
 from flet import UserControl, Page, Text, Column, Row, TextField, Container
 import flet_material as fm
+import database
 import re
+import time
 
 
 INPUT_WIDTH = 300  # input field width
@@ -124,19 +126,6 @@ class InputField(UserControl):
 
         self.update()
 
-    # def submit(self, input_label, input_v):
-    #     if input_label == 'User Name' and is_space(input_v) == True:
-    #         self.input.error_text = 'Name is field cannot be empty'
-    #         self.input.suffix_style = ft.TextStyle(
-    #             size=18,
-    #             color='red',
-    #         )
-    #         self.input.update(
-
-    #         )
-    #         # TextField()
-    #         # pass
-
     def build(self):
         return self.input_box
 
@@ -155,7 +144,6 @@ class FormUI(UserControl):
 
         )
         self.submit_button = ft.ElevatedButton(
-            # text='Sign Up',
             content=Text(
                 value='Sign Up',
                 size=18,
@@ -216,7 +204,6 @@ class FormUI(UserControl):
                 )
             ]
         )
-        # self.user_name.input.value = 'sye     '
 
     def submit(self):
         username = self.user_name.input
@@ -224,8 +211,7 @@ class FormUI(UserControl):
         pas_ = self.password.input
         con_pass_ = self.confirm_password.input
 
-        # TextField()
-        if not username.value or bool(num_of_spaces(username.value)) or not pas_.value or not con_pass_.value or pas_.value != con_pass_.value or not e_mail.value or bool(num_of_spaces(e_mail.value)):
+        if not username.value or bool(num_of_spaces(username.value)) or not pas_.value or not con_pass_.value or pas_.value != con_pass_.value or not e_mail.value or bool(num_of_spaces(e_mail.value)) or '@' not in e_mail.value:
 
             def errors_style(field_name):
                 """Defines the error style of the input field and the label text"""
@@ -240,7 +226,7 @@ class FormUI(UserControl):
 
             # checks for empty fields
             if not username.value or not e_mail.value or not pas_.value or not con_pass_:
-                print('hey')
+                # print('hey')
                 for field in [username, e_mail, pas_, con_pass_]:
                     if not field.value:
                         field.error_text = f'{str(field.label).lower()} cannot be empty!'
@@ -249,8 +235,13 @@ class FormUI(UserControl):
                 self.update()
 
             # checks spacing in email and username fields
-            if bool(num_of_spaces(e_mail.value)) or num_of_spaces(username.value) > 1:
-                print('supppppppppp')
+            if bool(num_of_spaces(e_mail.value)) or num_of_spaces(username.value) > 1 or '@' not in e_mail.value:
+                # print('supppppppppp')
+                if '@' not in e_mail.value:
+                    e_mail.error_text = 'email must contain "@"'
+                    errors_style(e_mail)
+                    self.update()
+
                 if bool(num_of_spaces(e_mail.value)):
                     e_mail.error_text = 'email cannot contain spaces!'
                     errors_style(e_mail)
@@ -263,7 +254,7 @@ class FormUI(UserControl):
 
             # checks for valid passwords
             if pas_.value:
-                if len(pas_.value) < 5:
+                if len(pas_.value) < 6:
                     pas_.error_text = 'password must be at least 6 characters long'
                     errors_style(pas_)
                     pas_.update()
@@ -276,6 +267,22 @@ class FormUI(UserControl):
                     con_pass_.error_text = 'passwords do not match'
                     errors_style(con_pass_)
                     con_pass_.update()
+        # else:
+            # time of creation
+        if username.value and num_of_spaces(username.value) <= 1 and pas_.value and con_pass_.value and pas_.value == con_pass_.value and e_mail.value and bool(num_of_spaces(e_mail.value)) == False and '@' in e_mail.value:
+
+            print('ooh heyyyyy')
+            date_now = time.strftime('%b-%d-%Y %H:%M:%S')
+            # submits record to the database
+            print(date_now)
+            database.add_record(
+                username.value, e_mail.value + e_mail.suffix_text, pas_.value, date_now)
+            username.value = ''
+            e_mail.value = ''
+            pas_.value = ''
+            con_pass_.value = ''
+            username.autofocus = True
+            self.update()
 
     def log_in():
         pass
