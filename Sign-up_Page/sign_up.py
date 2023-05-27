@@ -10,13 +10,15 @@ PRIMARY = 'indigo'  # general color layout
 fm.Theme.set_theme(theme=PRIMARY)
 
 
-def is_space(string: str) -> bool:
+def num_of_spaces(string: str) -> int:
+    """Returns the number of spaces in the provided string parameter value"""
     pattern = re.compile('\s')
-    return True if len(pattern.findall(string)) > 1 else False
+    return len(pattern.findall(string))
 
 
 if __name__ == '__main__':
-    print(is_space(' '))
+    print(bool(num_of_spaces('')))
+    print(num_of_spaces(''))
 
 
 class InputField(UserControl):
@@ -52,7 +54,7 @@ class InputField(UserControl):
             # error_style=,
             on_focus=lambda e: self.input_focus(self.input.label),
             on_blur=lambda e: self.input_blur(),
-            on_submit=lambda e: self.submit(self.input_label, self.input.value)
+            # on_submit=lambda e: self.submit(self.input_label, self.input.value)
         )
 
         self.input_box: ft.Container = Container(
@@ -69,6 +71,7 @@ class InputField(UserControl):
         """
         if input_label == 'User Name':
             self.input.capitalization = ft.TextCapitalization.WORDS
+            # self.input.error_text = None
             self.input.hint_text = 'first name and last name'
             self.input.hint_style = ft.TextStyle(
                 size=16,
@@ -78,6 +81,7 @@ class InputField(UserControl):
 
         if input_label == 'Email':
             self.input.suffix_text = '.com'
+            # self.input.err
             self.input.suffix_style = ft.TextStyle(
                 size=18,
                 color=ft.colors.BLACK54,
@@ -96,6 +100,8 @@ class InputField(UserControl):
             color=ft.colors.with_opacity(0.025, ft.colors.BLACK12),
             offset=ft.Offset(6, 4)
         )
+
+        self.input.error_text = None
 
         self.update()
 
@@ -118,18 +124,18 @@ class InputField(UserControl):
 
         self.update()
 
-    def submit(self, input_label, input_v):
-        if input_label == 'User Name' and is_space(input_v) == True:
-            self.input.error_text = 'Name is field cannot be empty'
-            self.input.suffix_style = ft.TextStyle(
-                size=18,
-                color='red',
-            )
-            self.input.update(
+    # def submit(self, input_label, input_v):
+    #     if input_label == 'User Name' and is_space(input_v) == True:
+    #         self.input.error_text = 'Name is field cannot be empty'
+    #         self.input.suffix_style = ft.TextStyle(
+    #             size=18,
+    #             color='red',
+    #         )
+    #         self.input.update(
 
-            )
-            # TextField()
-            # pass
+    #         )
+    #         # TextField()
+    #         # pass
 
     def build(self):
         return self.input_box
@@ -181,6 +187,7 @@ class FormUI(UserControl):
                 # surface_tint_color='yellow',
                 animation_duration=500
             ),
+            on_click=lambda e: self.submit()
             # animate_opacity=ft.Animation(100, ft.AnimationCurve.BOUNCE_IN ),
         )
 
@@ -200,13 +207,78 @@ class FormUI(UserControl):
                             style=ft.TextStyle(
                                 color=PRIMARY,
                                 font_family=None,
+                            ),
+                            # on_click=lambda e: self.log_in(),
+                            # tool
 
-                            )
                         )
                     ]
                 )
             ]
         )
+        # self.user_name.input.value = 'sye     '
+
+    def submit(self):
+        username = self.user_name.input
+        e_mail = self.email.input
+        pas_ = self.password.input
+        con_pass_ = self.confirm_password.input
+
+        # TextField()
+        if not username.value or bool(num_of_spaces(username.value)) or not pas_.value or not con_pass_.value or pas_.value != con_pass_.value or not e_mail.value or bool(num_of_spaces(e_mail.value)):
+
+            def errors_style(field_name):
+                """Defines the error style of the input field and the label text"""
+                field_name.label_style = ft.TextStyle(
+                    color=ft.colors.with_opacity(0.85, 'red')
+                )
+                field_name.error_style = ft.TextStyle(
+                    size=11,
+                    color=ft.colors.with_opacity(0.85, 'red')
+                )
+                field_name.update()
+
+            # checks for empty fields
+            if not username.value or not e_mail.value or not pas_.value or not con_pass_:
+                print('hey')
+                for field in [username, e_mail, pas_, con_pass_]:
+                    if not field.value:
+                        field.error_text = f'{str(field.label).lower()} cannot be empty!'
+                        errors_style(field)
+
+                self.update()
+
+            # checks spacing in email and username fields
+            if bool(num_of_spaces(e_mail.value)) or num_of_spaces(username.value) > 1:
+                print('supppppppppp')
+                if bool(num_of_spaces(e_mail.value)):
+                    e_mail.error_text = 'email cannot contain spaces!'
+                    errors_style(e_mail)
+                    e_mail.update()
+
+                if num_of_spaces(username.value) > 1:
+                    username.error_text = 'name must be only two! check the spaces'
+                    errors_style(username)
+                    username.update()
+
+            # checks for valid passwords
+            if pas_.value:
+                if len(pas_.value) < 5:
+                    pas_.error_text = 'password must be at least 6 characters long'
+                    errors_style(pas_)
+                    pas_.update()
+
+                elif pas_.value != con_pass_.value:
+                    pas_.error_text = 'passwords do not match!'
+                    errors_style(pas_)
+                    pas_.update()
+
+                    con_pass_.error_text = 'passwords do not match'
+                    errors_style(con_pass_)
+                    con_pass_.update()
+
+    def log_in():
+        pass
 
     def build(self):
         main_container = Container(
