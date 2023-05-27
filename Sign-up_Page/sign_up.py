@@ -1,3 +1,4 @@
+"""Date: Friday - Saturday May 27, 2023"""
 import flet as ft
 from flet import UserControl, Page, Text, Column, Row, TextField, Container
 import flet_material as fm
@@ -271,12 +272,12 @@ class FormUI(UserControl):
             # time of creation
         if username.value and num_of_spaces(username.value) <= 1 and pas_.value and con_pass_.value and pas_.value == con_pass_.value and e_mail.value and bool(num_of_spaces(e_mail.value)) == False and '@' in e_mail.value:
 
-            print('ooh heyyyyy')
+            # print('ooh heyyyyy')
             date_now = time.strftime('%b-%d-%Y %H:%M:%S')
             # submits record to the database
             print(date_now)
             database.add_record(
-                username.value, e_mail.value + e_mail.suffix_text, pas_.value, date_now)
+                username.value, (e_mail.value + e_mail.suffix_text).lower(), pas_.value, date_now)
             username.value = ''
             e_mail.value = ''
             pas_.value = ''
