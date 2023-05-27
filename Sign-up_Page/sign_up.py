@@ -278,77 +278,137 @@ class FormUI(UserControl):
             print(date_now)
             database.add_record(
                 username.value, (e_mail.value + e_mail.suffix_text).lower(), pas_.value, date_now)
+
+            # loading = ft.ProgressBar(
+            #     width=140,
+            #     value=1,
+            #     color=PRIMARY,
+            #     offset=ft.Offset()
+
+            # )
+            self.main_container.controls[1].visible = True
+            self.main_container.controls[1].opacity = 0.4
+            self.update()
+
             username.value = ''
+            username.update()
             e_mail.value = ''
+            e_mail.update()
             pas_.value = ''
+            pas_.update()
             con_pass_.value = ''
-            username.autofocus = True
+            con_pass_.update()
+
+            self.loading.visible = True
+            self.loading.update()
+            time.sleep(5)
+            self.loading.visible = False
+            self.main_container.controls[1].opacity = 0
+            self.main_container.controls[1].visible = False
+            self.success.open = True
             self.update()
 
     def log_in():
         pass
 
-    def build(self):
-        main_container = Container(
-            width=340,
-            height=650,
-            bgcolor='white',
-            padding=ft.padding.all(10),
-            alignment=ft.alignment.center,
-            border_radius=ft.border_radius.all(10),
-            shadow=ft.BoxShadow(
-                spread_radius=6,
-                blur_radius=4,
-                color=ft.colors.with_opacity(0.1, 'black'),
-                offset=ft.Offset(x=0, y=2)
-            ),
-            content=Column(
-                alignment=ft.CrossAxisAlignment.CENTER,
-                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                controls=[
-                    ft.Image(
-                        src='assets/images/sign_up.png',
-                        height=160,
-                        fit=ft.ImageFit.COVER,
-                        repeat=ft.ImageRepeat.NO_REPEAT
+    loading = ft.ProgressBar(
+        width=345,
+        value=None,
+        color=PRIMARY,
+        bgcolor='transparent',
+        offset=ft.Offset(y=15, x=0),
+        visible=False
+    )
 
-                    ), Column(
-                        spacing=24,
+    success = ft.SnackBar(
+        bgcolor='#1a7431',
+        duration=1700,
+        content=Text(
+            value='Sign up is successful',
+            color='white',
+            size=18,
+        ),
+        # open=True
+
+    )
+
+    def build(self):
+        self.main_container = ft.Stack(
+            controls=[
+                Container(
+                    width=340,
+                    height=650,
+                    bgcolor='white',
+                    padding=ft.padding.all(10),
+                    alignment=ft.alignment.center,
+                    border_radius=ft.border_radius.all(10),
+                    animate=ft.Animation(600, ft.AnimationCurve.EASE_IN),
+                    shadow=ft.BoxShadow(
+                        spread_radius=6,
+                        blur_radius=4,
+                        color=ft.colors.with_opacity(0.1, 'black'),
+                        offset=ft.Offset(x=0, y=2)
+                    ),
+                    content=Column(
+                        alignment=ft.CrossAxisAlignment.CENTER,
                         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                         controls=[
-                            Text(
-                                value='Welcome to Planner',
-                                font_family=self.font_family_medium,
-                                size=20,
-                                text_align=ft.TextAlign.CENTER,
-                                color=fm.Theme.bgcolor,
-                                selectable=False,
+                            ft.Image(
+                                src='assets/images/sign_up.png',
+                                height=160,
+                                fit=ft.ImageFit.COVER,
+                                repeat=ft.ImageRepeat.NO_REPEAT
 
-                            ),
-                            Column(
-                                # spacing=0,
+                            ), Column(
+                                spacing=24,
+                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                                 controls=[
-                                    self.user_name,
-                                    self.email,
-                                    self.passwords,
-                                    # for spacing,
-                                    Container(
-                                        padding=ft.padding.only(bottom=4), width=0),
-                                    self.submit_button,
-                                    Container(padding=ft.padding.only(
-                                        bottom=2), width=0),
-                                    self.log_in
+                                    Text(
+                                        value='Welcome, Planner',
+                                        font_family=self.font_family_medium,
+                                        size=20,
+                                        text_align=ft.TextAlign.CENTER,
+                                        color=fm.Theme.bgcolor,
+                                        selectable=False,
+
+                                    ),
+                                    Column(
+                                        # spacing=0,
+                                        controls=[
+                                            self.user_name,
+                                            self.email,
+                                            self.passwords,
+                                            # for spacing,
+                                            Container(
+                                                padding=ft.padding.only(bottom=4), width=0),
+                                            self.submit_button,
+                                            Container(padding=ft.padding.only(
+                                                bottom=2), width=0),
+                                            self.log_in,
+                                            self.loading,
+                                            self.success
+
+
+
+                                        ]
+                                    )
 
                                 ]
-                            )
+                            ),
 
                         ]
-                    ),
-
-                ]
-            )
+                    )
+                ),
+                Container(
+                    width=340,
+                    height=650,
+                    bgcolor='white',
+                    opacity=0,
+                    visible=False
+                ),
+            ]
         )
-        return main_container
+        return self.main_container
 
 
 def main(page: Page):
