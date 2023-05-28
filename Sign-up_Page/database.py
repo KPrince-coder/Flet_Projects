@@ -87,10 +87,10 @@ if __name__ == '__main__':
     print(show_all())
 
 
-with closing(sqlite3.connect(db_file)) as conn:
-    conn.execute("SELECT rowid, * FROM sqlite_master")
-    print(conn.total_changes)
-    # conn.commit()
+# with closing(sqlite3.connect(db_file)) as conn:
+#     conn.execute("SELECT rowid, * FROM sqlite_master")
+#     print(conn.total_changes)
+#     # conn.commit()
 
 # with closing(sqlite3.connect(db_file)) as conn:
 #     conn.execute("DROP TABLE sign_up_database")
