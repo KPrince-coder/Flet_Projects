@@ -270,7 +270,7 @@ class FormUI(UserControl):
                     con_pass_.update()
         # else:
             # time of creation
-        if username.value and num_of_spaces(username.value) <= 1 and pas_.value and con_pass_.value and pas_.value == con_pass_.value and e_mail.value and bool(num_of_spaces(e_mail.value)) == False and '@' in e_mail.value:
+        if username.value and num_of_spaces(username.value) <= 1 and pas_.value and con_pass_.value and pas_.value == con_pass_.value and e_mail.value and bool(num_of_spaces(e_mail.value)) == False and '@' in e_mail.value and len(pas_.value) > 5:
 
             # print('ooh heyyyyy')
             date_now = time.strftime('%b-%d-%Y %H:%M:%S')
@@ -279,13 +279,6 @@ class FormUI(UserControl):
             database.add_record(
                 username.value, (e_mail.value + e_mail.suffix_text).lower(), pas_.value, date_now)
 
-            # loading = ft.ProgressBar(
-            #     width=140,
-            #     value=1,
-            #     color=PRIMARY,
-            #     offset=ft.Offset()
-
-            # )
             self.main_container.controls[1].visible = True
             self.main_container.controls[1].opacity = 0.4
             self.update()
@@ -364,7 +357,7 @@ class FormUI(UserControl):
                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                                 controls=[
                                     Text(
-                                        value='Welcome, Planner',
+                                        value='Welcome, dear Planner',
                                         font_family=self.font_family_medium,
                                         size=20,
                                         text_align=ft.TextAlign.CENTER,
