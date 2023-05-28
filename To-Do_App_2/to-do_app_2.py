@@ -42,6 +42,7 @@ def main(page: ft.Page):
     page.window_resizable = False
     # page.window_center()
     page.splash = ft.ProgressBar(visible=False)
+    page.update()
 
     def change_theme(e):
         """Changes the theme of the window

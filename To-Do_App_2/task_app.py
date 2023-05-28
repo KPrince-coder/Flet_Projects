@@ -219,8 +219,7 @@ class Task(UserControl):
 
     def delete(self, e):
         self.delete_dialog.open = False
-        self.delete_dialog.clean()
-        # self.update()
+        self.update()
         self.delete_task(self)
         self.update()
 
