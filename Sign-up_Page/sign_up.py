@@ -1,11 +1,12 @@
 """Date: Friday - Saturday May 27, 2023"""
-import flet as ft
-from flet import UserControl, Page, Text, Column, Row, TextField, Container
-import flet_material as fm
-import database
 import re
 import time
 
+import flet as ft
+import flet_material as fm
+from flet import Column, Container, Page, Row, Text, TextField, UserControl
+
+import database
 
 INPUT_WIDTH = 300  # input field width
 INPUT_HEIGHT = 52  # input field height

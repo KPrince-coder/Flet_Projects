@@ -1,6 +1,6 @@
+import os
 import sqlite3
 from contextlib import closing
-import os
 
 # creating path to database
 db_filepath = os.path.join(os.path.dirname(__file__), 'database')
@@ -84,7 +84,7 @@ if __name__ == '__main__':
     #   , s2, s3, s4 = record
     # add_record(*record)
     print('successfully added')
-    print(show_all())
+    show_all()
 
 
 # with closing(sqlite3.connect(db_file)) as conn:
